@@ -47,13 +47,25 @@ app.get('/campsites/:campsiteId', (req, res) => {
 });
 
 // post request
-app.post('')
-
-app.use(express.static(__dirname + '/public'));
-
-app.use((req, res) => {
-    res.statusCode = 200;
+app.post('campsites/:campsiteId', (req, res) => {
+    res.statusCode = 403;
+    res.end(`POST operation not supported on /campsites/${req.params.campsiteId}`);
 });
+
+// put request
+app.put('/campsites/:campsiteId', (req, res) => {
+    res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
+    res.end(`Will update the campsite: ${req.body.name} with description: ${req.body.description}`);
+});
+
+// delete request
+app.delete('/campsites/:campsiteId', (req, res) => {
+    res.end(`Deleting campsite: ${req.params.campsiteId}`);
+});
+
+
+// location of the website pages
+app.use(express.static(__dirname + '/public'));
 
 
 app.use((req, res) => {

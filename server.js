@@ -19,7 +19,7 @@ app.all('/campsites', (req, res, next) => {
 
 // '/campsites' request group 
 // get request
-app.get('/campsite', (req, res) => {
+app.get('/campsites', (req, res) => {
     res.end('Will send all the campsites to you');
 });
 
@@ -55,7 +55,8 @@ app.post('campsites/:campsiteId', (req, res) => {
 // put request
 app.put('/campsites/:campsiteId', (req, res) => {
     res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
-    res.end(`Will update the campsite: ${req.body.name} with description: ${req.body.description}`);
+    res.end(`Will update the campsite: ${req.body.name} 
+        with description: ${req.body.description}`);
 });
 
 // delete request

@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/campsites', campsiteRouter);
-app.use('/promotion', promotionRouter);
+app.use('/promotions', promotionRouter);
 
 
 
